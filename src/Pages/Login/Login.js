@@ -9,11 +9,10 @@ const Login = () => {
           Login to your account
         </h2>
         <p className="text-sm text-center dark:text-gray-400">
-          Dont have account?
+          Don't have account? {""}
           <Link
-            href="#"
-            rel="noopener noreferrer"
-            className="focus:underline hover:underline"
+            to="/register"
+            className="focus:underline hover:underline text-orange-400"
           >
             Sign up here
           </Link>
@@ -43,11 +42,7 @@ const Login = () => {
             </svg>
             <p>Login with GitHub</p>
           </button>
-          <button
-            aria-label="Login with Twitter"
-            role="button"
-            className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
-          >
+          <button className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -77,7 +72,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="leroy@jenkins.com"
+                placeholder="Your Email"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
               />
             </div>
@@ -86,13 +81,13 @@ const Login = () => {
                 <label for="password" className="text-sm">
                   Password
                 </label>
-                <a
+                <Link
                   rel="noopener noreferrer"
                   href="#"
                   className="text-xs hover:underline dark:text-gray-400"
                 >
                   Forgot password?
-                </a>
+                </Link>
               </div>
               <input
                 type="password"

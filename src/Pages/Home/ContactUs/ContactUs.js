@@ -5,14 +5,16 @@ import Animation from "../../../assets/contact-us.json";
 const ContactUs = () => {
   return (
     <div className="grid w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto  md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-gray-600 text-gray-100">
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-evenly items-center">
         <div className="space-y-2">
           <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
             Let's talk!
           </h2>
           <div className="text-gray-400">Vivamus in nisl metus? Phasellus.</div>
         </div>
-        <Lottie animationData={Animation} loop={true}></Lottie>
+        <div className="">
+          <Lottie animationData={Animation} loop={true}></Lottie>
+        </div>
       </div>
       <form novalidate="" className="space-y-6 ">
         <div>
