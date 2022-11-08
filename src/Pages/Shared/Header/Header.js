@@ -34,7 +34,7 @@ const Header = () => {
           </li>
           <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
             {" "}
-            <Link to="/" className="hover:text-orange-300 duration-500">
+            <Link to="/services" className="hover:text-orange-300 duration-500">
               Our Services
             </Link>
           </li>
@@ -46,19 +46,19 @@ const Header = () => {
           </li>
           <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
             {" "}
-            <Link to="/" className="hover:text-orange-300 duration-500">
+            <Link to="/blog" className="hover:text-orange-300 duration-500">
               Blog
             </Link>
           </li>
           <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
             {" "}
-            <Link to="/" className="hover:text-orange-300 duration-500">
+            <Link to="/login" className="hover:text-orange-300 duration-500">
               LogIn
             </Link>
           </li>
           <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
             {" "}
-            <Link to="/" className="hover:text-orange-300 duration-500">
+            <Link to="/register" className="hover:text-orange-300 duration-500">
               Register
             </Link>
           </li>
