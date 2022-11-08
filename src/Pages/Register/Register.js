@@ -6,7 +6,7 @@ const Register = () => {
     <div className="flex justify-center items-center bg-gray-900">
       <div className="w-full my-20  max-w-md p-4  shadow sm:p-8 bg-gray-900 text-gray-100">
         <h2 className="mb-3 text-3xl font-semibold text-center ">
-          Login to your account
+          Sign Up Now
         </h2>
         <p className="text-sm text-center dark:text-gray-400">
           Already have an account? {""}
