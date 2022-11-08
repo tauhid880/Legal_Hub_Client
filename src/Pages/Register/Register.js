@@ -1,7 +1,64 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { AuthContext } from "../../../src/context/AuthProvider/AuthProvider";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 const Register = () => {
+  const { providerLogin, createUser, githubLogIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setError("");
+        navigate(from, { replace: true });
+      })
+      .catch((e) => {
+        console.error(e);
+        setError(e.message);
+      });
+  };
+
+  // Google sign in
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
+  };
+
+  // Github
+  const githubProvider = new GithubAuthProvider();
+  const handleGithubSignIn = () => {
+    githubLogIn(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
+  };
   return (
     <div className="flex justify-center items-center bg-gray-900">
       <div className="w-full my-20  max-w-md p-4  shadow sm:p-8 bg-gray-900 text-gray-100">
@@ -19,6 +76,7 @@ const Register = () => {
         </p>
         <div className="my-6 space-y-4">
           <button
+            onClick={handleGoogleSignIn}
             aria-label="Login with Google"
             type="button"
             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
@@ -32,7 +90,10 @@ const Register = () => {
             </svg>
             <p>Login with Google</p>
           </button>
-          <button className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400">
+          <button
+            onClick={handleGithubSignIn}
+            className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -59,8 +120,7 @@ const Register = () => {
           <hr className="w-full text-gray-400" />
         </div>
         <form
-          novalidate=""
-          action=""
+          onSubmit={handleSubmit}
           className="space-y-8 ng-untouched ng-pristine ng-valid"
         >
           <div className="space-y-4">
@@ -73,7 +133,7 @@ const Register = () => {
                 name="name"
                 id="name"
                 placeholder="Your Name"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+                className="w-full px-3 py-2 border rounded-md border-gray-700 bg-white text-black focus:dark:border-violet-400"
               />
             </div>
             <div className="space-y-2">
@@ -85,7 +145,7 @@ const Register = () => {
                 name="email"
                 id="email"
                 placeholder="Your Email"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+                className="w-full px-3 py-2 border rounded-md border-gray-700 bg-white text-black focus:dark:border-violet-400"
               />
             </div>
             <div className="space-y-2">
@@ -99,10 +159,11 @@ const Register = () => {
                 name="password"
                 id="password"
                 placeholder="*****"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+                className="w-full px-3 py-2 border rounded-md border-gray-700 bg-white text-black focus:dark:border-violet-400"
               />
             </div>
           </div>
+          <p className="text-red-400 font-semibold text-lg">{error}</p>
           <button className="w-full px-8 py-3 font-semibold rounded-md bg-violet-400 text-gray-900">
             Sign Up
           </button>
