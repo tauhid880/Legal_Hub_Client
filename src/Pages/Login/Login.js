@@ -123,9 +123,7 @@ const Login = () => {
         >
           <div className="space-y-4">
             <div className="space-y-2">
-              <label for="email" className="block text-sm">
-                Email address
-              </label>
+              <label className="block text-sm">Email address</label>
               <input
                 type="email"
                 name="email"
@@ -136,9 +134,7 @@ const Login = () => {
             </div>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label for="password" className="text-sm">
-                  Password
-                </label>
+                <label className="text-sm">Password</label>
                 <Link
                   href="#"
                   className="text-xs hover:underline dark:text-gray-400"

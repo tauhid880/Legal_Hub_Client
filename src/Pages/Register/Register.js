@@ -125,9 +125,7 @@ const Register = () => {
         >
           <div className="space-y-4">
             <div className="space-y-2">
-              <label for="name" className="block text-sm">
-                Full Name
-              </label>
+              <label className="block text-sm">Full Name</label>
               <input
                 type="text"
                 name="name"
@@ -137,9 +135,7 @@ const Register = () => {
               />
             </div>
             <div className="space-y-2">
-              <label for="email" className="block text-sm">
-                Email address
-              </label>
+              <label className="block text-sm">Email address</label>
               <input
                 type="email"
                 name="email"
@@ -150,9 +146,7 @@ const Register = () => {
             </div>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label for="password" className="text-sm">
-                  Password
-                </label>
+                <label className="text-sm">Password</label>
               </div>
               <input
                 type="password"

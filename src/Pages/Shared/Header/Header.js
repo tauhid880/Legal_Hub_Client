@@ -1,9 +1,16 @@
 import React from "react";
-import { useState } from "react";
-import { FcMenu, FcServices, FcMinus } from "react-icons/fc";
+import { useState, useContext } from "react";
+import { FcMenu, FcServices, FcMinus, FcBusinessman } from "react-icons/fc";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   const [open, setOpen] = useState(false);
   return (
     <nav className="relative z-20">
@@ -29,7 +36,7 @@ const Header = () => {
             }`}
           >
             <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
-              <Link to="/" className="hover:text-orange-300 duration-500">
+              <Link to="/" className="hover:text-amber-200 duration-500">
                 Home
               </Link>
             </li>
@@ -37,44 +44,58 @@ const Header = () => {
               {" "}
               <Link
                 to="/services"
-                className="hover:text-orange-300 duration-500"
+                className="hover:text-amber-200 duration-500"
               >
                 Our Services
               </Link>
             </li>
             <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
               {" "}
-              <Link to="/" className="hover:text-orange-300 duration-500">
+              <Link to="/" className="hover:text-amber-200 duration-500">
                 About Us
               </Link>
             </li>
             <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
               {" "}
-              <Link to="/blog" className="hover:text-orange-300 duration-500">
+              <Link to="/blog" className="hover:text-amber-200 duration-500">
                 Blog
               </Link>
             </li>
             <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
-              {" "}
-              <Link to="/login" className="hover:text-orange-300 duration-500">
-                LogIn
-              </Link>
+              {user?.uid ? (
+                <>
+                  <Link
+                    onClick={handleLogOut}
+                    className="hover:bg-zinc-500 text-black rounded-none duration-500 btn bg-amber-200"
+                  >
+                    Log Out
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to={"/login"}
+                    className="btn hover:bg-zinc-500 text-black rounded-none duration-500 mr-2 bg-amber-200 shadow-xl"
+                  >
+                    Log In
+                  </Link>
+                  <Link
+                    to={"/register"}
+                    className="btn hover:bg-zinc-500 text-black rounded-none duration-500 bg-amber-200"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
             </li>
-            <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
-              {" "}
-              <Link
-                to="/register"
-                className="hover:text-orange-300 duration-500"
-              >
-                Register
-              </Link>
-            </li>
+
             <li className="md:ml-8 text-lg font-semibold avatar online placeholder">
               <div className="w-12 rounded-full">
-                <img
-                  src="https://images.unsplash.com/photo-1617203443952-6d2619f7ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  alt=""
-                />
+                {user?.photoURL ? (
+                  <img src={user?.photoURL} alt="" />
+                ) : (
+                  <FcBusinessman></FcBusinessman>
+                )}
               </div>
             </li>
           </ul>
