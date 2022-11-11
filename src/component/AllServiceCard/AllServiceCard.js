@@ -7,7 +7,7 @@ const AllServiceCard = ({ allService }) => {
   const { _id, name, picture, price, rating, description } = allService;
   return (
     <div className="">
-      <div className="card w-full bg-zinc-700 h-full text-white shadow-2xl">
+      <div className="card w-full bg-zinc-600 h-full text-white shadow-2xl">
         <PhotoProvider>
           <PhotoView src={picture}>
             <img
@@ -24,7 +24,12 @@ const AllServiceCard = ({ allService }) => {
             {description.slice(0, 100)} <br />{" "}
             <Link className="underline">Read more...</Link>
           </p>
-          <div className="badge bg-slate-900 p-4">Service Fee : {price}</div>
+          <div className="badge bg-slate-900 p-4 font-semibold">
+            Service Fee : {price}
+          </div>
+          <div className="badge bg-stone-700 p-4 font-semibold">
+            Ratting : {rating}
+          </div>
         </div>
         <div className="card-actions pl-5 pr-5 pb-5">
           <Link

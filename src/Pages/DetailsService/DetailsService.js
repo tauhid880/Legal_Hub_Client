@@ -1,38 +1,31 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Review from "../../component/Review/Review";
 
 const DetailsService = () => {
   const service = useLoaderData();
   const { _id, name, picture, price, rating, description } = service;
   return (
-    <div className="grid grid-cols-2 justify-around items-center pt-28 ">
-      <div className="service-section flex justify-center">
-        <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="grid lg:grid-cols-2 grid-cols-1 justify-around  pt-28 bg-slate-600">
+      <div className="service-section flex justify-center w-full bg-slate-600">
+        <div className="lg:p-10 p-5 text-white">
           <figure>
-            <img src={picture} alt="Shoes" />
+            <img src={picture} alt="" className="w-full h-full" />
           </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
+          <div className="card-body p-0 pt-5">
+            <h2 className="card-title">{name}</h2>
+            <p>{description}</p>
+            <div className="badge bg-slate-900 p-4 font-semibold">
+              Service Fee : {price}
+            </div>
+            <div className="badge bg-stone-700 p-4 font-semibold">
+              Ratting : {rating}
             </div>
           </div>
         </div>
       </div>
-      <div className="review-section flex justify-center">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
+      <div className="review-section ">
+        <Review></Review>
       </div>
     </div>
   );
