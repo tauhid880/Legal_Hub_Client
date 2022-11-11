@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Blog = () => {
   const posts = [
@@ -29,33 +30,38 @@ const Blog = () => {
   ];
 
   return (
-    <section className="mt-12 mx-auto px-4 max-w-screen-xl lg:px-8 pt-28 pb-10">
-      <div className="max-w-lg">
-        <h1 className="text-3xl text-gray-800 font-semibold">Blog</h1>
-        <p className="mt-3 text-gray-500">
-          Blogs that are loved by the community. Updated every hour. The
-          powerful gravity waves resulting from the impact of the planets, were
-          finally resolved in 2021
-        </p>
-      </div>
-      <div className="mt-12 grid gap-4 divide-y md:grid-cols-2 md:divide-y-0 lg:grid-cols-3">
-        {posts.map((item, idx) => (
-          <article className="mt-5 pt-8 md:pt-0" key={idx}>
-            <a href={item.href}>
-              <span className="block text-gray-400 text-sm">{item.date}</span>
-              <div className="mt-2">
-                <h3 className="text-xl text-gray-900 font-semibold hover:underline">
-                  {item.title}
-                </h3>
-                <p className="text-gray-400 mt-1 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
+    <div>
+      <Helmet>
+        <title>Blog</title>
+      </Helmet>
+      <section className="mt-12 mx-auto px-4 max-w-screen-xl lg:px-8 pt-28 pb-10">
+        <div className="max-w-lg">
+          <h1 className="text-3xl text-gray-800 font-semibold">Blog</h1>
+          <p className="mt-3 text-gray-500">
+            Blogs that are loved by the community. Updated every hour. The
+            powerful gravity waves resulting from the impact of the planets,
+            were finally resolved in 2021
+          </p>
+        </div>
+        <div className="mt-12 grid gap-4 divide-y md:grid-cols-2 md:divide-y-0 lg:grid-cols-3">
+          {posts.map((item, idx) => (
+            <article className="mt-5 pt-8 md:pt-0" key={idx}>
+              <a href={item.href}>
+                <span className="block text-gray-400 text-sm">{item.date}</span>
+                <div className="mt-2">
+                  <h3 className="text-xl text-gray-900 font-semibold hover:underline">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 mt-1 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 

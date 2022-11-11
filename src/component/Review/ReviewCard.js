@@ -1,7 +1,7 @@
 import React from "react";
 
 const ReviewCard = ({ review }) => {
-  const { userName, img, rating, comment, time } = review;
+  const { userName, img, rating, comment, time, serviceName } = review;
   return (
     <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-500 shadow-2xl text-gray-100">
       <div className="flex justify-between p-4">
@@ -16,6 +16,11 @@ const ReviewCard = ({ review }) => {
           <div>
             <h4 className="font-bold">{userName}</h4>
             <span className="text-xs dark:text-gray-400">{time}</span>
+            <div>
+              <p className="text-md font-bold text-gray-100">
+                Service Name : {serviceName}
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex items-center space-x-2 dark:text-yellow-500">

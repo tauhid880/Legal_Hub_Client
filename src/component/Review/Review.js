@@ -24,6 +24,7 @@ const Review = () => {
     const comment = form.comment.value;
     const photoURL = form.photoURL.value;
     const rating = form.rating.value;
+    const serviceName = form.serviceName.value;
     const { _id } = reviews;
 
     const review = {
@@ -33,6 +34,7 @@ const Review = () => {
       comment: comment,
       img: photoURL,
       rating: rating,
+      serviceName: serviceName,
     };
 
     fetch("http://localhost:5000/reviews", {
@@ -75,6 +77,7 @@ const Review = () => {
                   placeholder="Name"
                   name="name"
                   className="input input-bordered w-full"
+                  required
                 />
               </div>
               <div className="my-5">
@@ -84,6 +87,7 @@ const Review = () => {
                   name="photoURL"
                   placeholder="Image"
                   className="input input-bordered w-full"
+                  required
                 />
               </div>
               <div className="my-5">
@@ -94,6 +98,17 @@ const Review = () => {
                   type="text"
                   name="rating"
                   placeholder="Rating"
+                  className="input input-bordered w-full"
+                  required
+                />
+              </div>
+              <div className="my-5">
+                <label className="label-text text-gray-200">Service Name</label>
+                <input
+                  type="text"
+                  name="serviceName"
+                  placeholder="Service Name"
+                  required
                   className="input input-bordered w-full"
                 />
               </div>
@@ -111,6 +126,7 @@ const Review = () => {
                 className="textarea textarea-bordered my-5 "
                 placeholder="Add a Review"
                 name="comment"
+                required
               ></textarea>
               <button className="btn btn-success btn-outline normal-case">
                 <p className="text-white">Submit</p>

@@ -72,7 +72,7 @@ const Header = () => {
                 <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
                   {" "}
                   <Link
-                    to="/blog"
+                    to="/addservice"
                     className="hover:text-amber-200 duration-500"
                   >
                     Add service
