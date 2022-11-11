@@ -6,7 +6,7 @@ import AllServiceCard from "../../component/AllServiceCard/AllServiceCard";
 const AllServices = () => {
   const [allServices, setAllServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allServices")
+    fetch("https://legal-hub-server.vercel.app/allServices")
       .then((res) => res.json())
       .then((data) => setAllServices(data));
   }, []);

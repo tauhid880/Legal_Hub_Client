@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
         path: "/services/:id",
         element: <DetailsService></DetailsService>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://legal-hub-server.vercel.app/services/${params.id}`),
       },
 
       {
