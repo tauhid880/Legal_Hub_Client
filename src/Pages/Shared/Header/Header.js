@@ -19,7 +19,9 @@ const Header = () => {
           <div className="font-bold text-2xl cursor-pointer flex items-center px- text-gray-800">
             <FcServices className="text-5xl"></FcServices>
             <h1 className="text-2xl text-white lg:ml-2 ml-1">
-              Legal <span className="text-xl text-amber-300">Hub</span>
+              <Link to="/">
+                Legal <span className="text-xl text-amber-300">Hub</span>
+              </Link>
             </h1>
           </div>
           <div
@@ -56,6 +58,30 @@ const Header = () => {
                 Blog
               </Link>
             </li>
+            {user?.uid ? (
+              <>
+                <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
+                  {" "}
+                  <Link
+                    to="/blog"
+                    className="hover:text-amber-200 duration-500"
+                  >
+                    My reviews
+                  </Link>
+                </li>
+                <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
+                  {" "}
+                  <Link
+                    to="/blog"
+                    className="hover:text-amber-200 duration-500"
+                  >
+                    Add service
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <li></li>
+            )}
             <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
               {user?.uid ? (
                 <>
