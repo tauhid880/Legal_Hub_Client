@@ -4,10 +4,10 @@ import Review from "../../component/Review/Review";
 
 const DetailsService = () => {
   const service = useLoaderData();
-  const { _id, name, picture, price, rating, description } = service;
+  const { name, picture, price, rating, description } = service;
   return (
     <div className="grid lg:grid-cols-2 grid-cols-1 justify-around  pt-28 bg-slate-600">
-      <div className="service-section flex justify-center w-full bg-slate-600">
+      <div className="service-section flex justify-center w-full h-full bg-slate-600">
         <div className="lg:p-10 p-5 text-white">
           <figure>
             <img src={picture} alt="" className="w-full h-full" />
@@ -24,7 +24,7 @@ const DetailsService = () => {
           </div>
         </div>
       </div>
-      <div className="review-section ">
+      <div className="review-section w-full h-full">
         <Review></Review>
       </div>
     </div>
