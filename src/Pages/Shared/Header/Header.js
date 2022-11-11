@@ -85,12 +85,12 @@ const Header = () => {
             <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
               {user?.uid ? (
                 <>
-                  <Link
+                  <button
                     onClick={handleLogOut}
                     className="hover:bg-zinc-500 text-black rounded-none duration-500 btn bg-amber-200"
                   >
                     Log Out
-                  </Link>
+                  </button>
                 </>
               ) : (
                 <>
