@@ -16,6 +16,13 @@ const Review = () => {
       {reviews.map((review) => (
         <ReviewCard key={review._id} review={review}></ReviewCard>
       ))}
+      <div className="flex justify-center items-center">
+        <textarea
+          className="textarea textarea-bordered w-1/2"
+          placeholder="Add a Review"
+        ></textarea>
+        <button className="btn btn-outline text-white ml-5">Submit</button>
+      </div>
     </div>
   );
 };
