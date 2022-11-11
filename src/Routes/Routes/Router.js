@@ -4,7 +4,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
-import Services from "../../Pages/Services/Services";
+import AllServices from "../../Pages/AllServices/AllServices";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services",
-        element: <Services></Services>,
+        element: <AllServices></AllServices>,
       },
       {
         path: "/blog",

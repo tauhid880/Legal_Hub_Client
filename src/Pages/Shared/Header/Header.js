@@ -49,12 +49,7 @@ const Header = () => {
                 Our Services
               </Link>
             </li>
-            <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
-              {" "}
-              <Link to="/" className="hover:text-amber-200 duration-500">
-                About Us
-              </Link>
-            </li>
+
             <li className="md:ml-8 text-lg font-semibold md:my-0 my-5">
               {" "}
               <Link to="/blog" className="hover:text-amber-200 duration-500">

@@ -1,12 +1,14 @@
 import React from "react";
 import ContactUs from "../ContactUs/ContactUs";
 import Hero from "../Hero/Hero";
+import Services from "../Services/Services";
 import Statistics from "../Statistics/Statistics";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-zinc-600">
       <Hero></Hero>
+      <Services></Services>
       <ContactUs></ContactUs>
       <Statistics></Statistics>
     </div>

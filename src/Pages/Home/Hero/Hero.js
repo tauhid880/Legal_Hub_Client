@@ -30,9 +30,9 @@ const Hero = () => {
         </div>
       </div>
       <img
-        src="https://images.unsplash.com/photo-1617203443952-6d2619f7ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        src="https://media.istockphoto.com/id/609696404/photo/i-dominated-the-business-world.jpg?b=1&s=170667a&w=0&k=20&c=v1r4UXecc2Rvj07iLXCNbym7jTksNXZiWBg1JidMOCU="
         alt=""
-        className="lg:w-2/4 w-3/4 h-2/4 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 bg-gray-900"
+        className="lg:w-2/4 w-3/4  mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 "
       />
     </section>
   );
